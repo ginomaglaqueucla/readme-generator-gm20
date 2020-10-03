@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const generateReadContent = require('./src/readme-template');
 // array of questions for user
 const questions = [
     'Enter GitHub username:',
@@ -35,7 +36,10 @@ const promptUser = () => {
 
 // function to initialize program
 function init() {
-    promptUser();
+    promptUser()
+    .then(readmeData => { 
+        return generateReadContent(readmeData);
+    });
 }
 
 // function call to initialize program
