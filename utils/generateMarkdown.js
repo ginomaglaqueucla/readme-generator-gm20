@@ -102,5 +102,5 @@ ${tests}
 ## Questions
 Any questions? Contact at: ${email}
 
-[GitHub: ${gitUser}](https://github.com/${gitUser})`
+GitHub: [${gitUser}](https://github.com/${gitUser})`
 }
