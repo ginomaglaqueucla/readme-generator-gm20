@@ -1,7 +1,7 @@
-# few
+# fweg
 
 ## Description
-few
+gewew
 
 ## Table of Contents
 * [Installation](#installation)
@@ -10,16 +10,19 @@ few
 * [License](#license)
 
 ## Installation
-few
+ewgg
 
 ## Usage
-few
+geww
 
 ## License
-undefined
+GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3, 19 November 2007
+Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+Everyone is permitted to copy and distribute verbatim copies
 
 ## Contribution
-few
+egwg
 
 ## Test
-few
+gewgew
