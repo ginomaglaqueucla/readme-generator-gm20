@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
-const generateReadContent = require('./src/readme-template');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
+
 // array of questions for user
 const questions = [
+    'Enter Full Name:',
     'Enter GitHub username:',
     'Enter email contact:',
     'What is the project title:',
@@ -14,7 +15,8 @@ const questions = [
     'Enter contribution guidelines:',
     'Enter Tests:'
 ];
-const licenseArray = ['GNU AGPLv3','MIT License','Boost Software License 1.0','The Unlicense'];
+// array of licenses
+const licenseArray = ['GNU AGPLv3','MIT','Boost Software','The Unlicense'];
 
 // function to write README file
 const writeToFile = fileContent => {
@@ -36,13 +38,26 @@ const writeToFile = fileContent => {
     });
 };
 
-
+// function prompts user
 const promptUser = () => {
     return inquirer.prompt([
       {
         type: 'input',
-        name: 'gitUser',
+        name: 'fullName',
         message: questions[0],
+        validate: fullName => {
+          if (fullName) {
+            return true;
+          } else {
+            console.log('REQUIRED! Enter Full Name!');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'gitUser',
+        message: questions[1],
         validate: gitUser => {
           if (gitUser) {
             return true;
@@ -55,7 +70,7 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'email',
-        message: questions[1],
+        message: questions[2],
         validate: email => {
           if (email) {
             return true;
@@ -68,7 +83,7 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'projTitle',
-        message: questions[2],
+        message: questions[3],
         validate: projTitle => {
           if (projTitle) {
             return true;
@@ -81,7 +96,7 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'projDescription',
-        message: questions[3],
+        message: questions[4],
         validate: projDecription => {
           if (projDecription) {
             return true;
@@ -94,7 +109,7 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'installInstruct',
-        message: questions[4],
+        message: questions[5],
         validate: installInstruct => {
           if (installInstruct) {
             return true;
@@ -107,7 +122,7 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'usageInfo',
-        message: questions[5],
+        message: questions[6],
         validate: usageInfo => {
           if (usageInfo) {
             return true;
@@ -120,7 +135,7 @@ const promptUser = () => {
       {
         type: 'list',
         name: 'license',
-        message: questions[6],
+        message: questions[7],
         choices: licenseArray,
         validate: license => {
           if (license) {
@@ -134,7 +149,7 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'contribution',
-        message: questions[7],
+        message: questions[8],
         validate: contribution => {
           if (contribution) {
             return true;
@@ -147,7 +162,7 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'tests',
-        message: questions[8],
+        message: questions[9],
         validate: tests => {
           if (tests) {
             return true;

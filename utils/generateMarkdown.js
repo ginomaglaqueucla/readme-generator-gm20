@@ -1,8 +1,9 @@
 const fs = require('fs')
 
 // function chooses licenses depending on user selection
-const licenseText = licenseUser => {
-  let txtPath = "";
+const licenseText = (licenseUser, fullName) => {
+  // license texts
+  let MIT_userName = 'Copyright (c) [' + new Date().getFullYear() + '] [' + fullName + ']';
   let GNU_AGPLv3 = 
                   ['GNU AFFERO GENERAL PUBLIC LICENSE', 
                    'Version 3, 19 November 2007',
@@ -11,7 +12,7 @@ const licenseText = licenseUser => {
                   ];
 
   let MIT_License = 
-                  ['MIT License', 'Copyright (c) [year] [fullname]',
+                  ['MIT License', MIT_userName,
                   'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:',
                   'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.',
                   'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'
@@ -28,13 +29,14 @@ const licenseText = licenseUser => {
                    'In jurisdictions that recognize copyright laws, the author or authors of this software dedicate any and all copyright interest in the software to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and successors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this software under copyright law.',
                    'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'];
 
+  // conditionals to select which license to choose
   if(licenseUser === "GNU AGPLv3"){
     return GNU_AGPLv3;
   }
-  else if (licenseUser === "MIT License"){
+  else if (licenseUser === "MIT"){
     return MIT_License;
   }
-  else if (licenseUser === "Boost_Software_License"){
+  else if (licenseUser === "Boost Software"){
     return Boost_Software_License;
   }
   else if (licenseUser === "The Unlicense"){
@@ -43,12 +45,11 @@ const licenseText = licenseUser => {
   
 }
 
-
-
 // function to generate markdown for README
 module.exports = READMEdata => {
-  console.log(READMEdata);
-  const { gitUser,
+  // destructure
+  const { fullName,
+          gitUser,
           email,
           projTitle,
           projDescription,
@@ -58,10 +59,13 @@ module.exports = READMEdata => {
           contribution,
           tests
       } = READMEdata;
-
-  const licenseTextString = licenseText(license);
-
+  
+  // select license
+  const licenseTextString = licenseText(license, fullName);
+  
+  // README.md content
   return `# ${projTitle}
+![licenseBadge](https://img.shields.io/badge/License-${license}-blue)
 
 ## Description
 ${projDescription}
@@ -79,6 +83,8 @@ ${installInstruct}
 ${usageInfo}
 
 ## License
+![licenseBadge](https://img.shields.io/badge/License-${license}-blue)
+
 ${licenseTextString[0]}
 
 ${licenseTextString[1]}
@@ -92,5 +98,9 @@ ${contribution}
 
 ## Test
 ${tests}
-`
+
+## Questions
+Any questions? Contact at: ${email}
+
+[GitHub: ${gitUser}](https://github.com/${gitUser})`
 }
