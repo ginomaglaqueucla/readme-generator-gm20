@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const generateReadContent = require('./src/readme-template');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
 // array of questions for user
 const questions = [
@@ -147,7 +148,7 @@ const promptUser = () => {
 function init() {
     promptUser()
     .then(readmeData => { 
-        return generateReadContent(readmeData);
+        return generateMarkdown(readmeData);
     })
     .then(createReadFile => {
         return writeToFile(createReadFile);

@@ -1,7 +1,7 @@
 // const generateTitle = projectTitle => {
 //     console.log(projectTitle);
 // }
-
+const generateMarkdown = require('../utils/generateMarkdown.js');
 module.exports = templateData => {
     console.log(templateData);
     const { gitUser,
