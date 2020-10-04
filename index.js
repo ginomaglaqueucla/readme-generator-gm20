@@ -10,9 +10,12 @@ const questions = [
     'Enter project description:',
     'Enter installation instructions:',
     'Enter usage information:',
+    'Choose a License:',
     'Enter contribution guidelines:',
     'Enter Tests:'
 ];
+const licenseArray = ['GNU AGPLv3','Apache License 2.0',
+                      'MIT License','Boost Software License 1.0','The Unlicense'];
 
 // function to write README file
 const writeToFile = fileContent => {
@@ -116,9 +119,23 @@ const promptUser = () => {
         }
       },
       {
+        type: 'list',
+        name: 'license',
+        message: questions[6],
+        choices: licenseArray,
+        validate: license => {
+          if (license) {
+            return true;
+          } else {
+            console.log('REQUIRED! Choose a License!');
+            return false;
+          }
+        }
+      },
+      {
         type: 'input',
         name: 'contribution',
-        message: questions[6],
+        message: questions[7],
         validate: contribution => {
           if (contribution) {
             return true;
@@ -131,7 +148,7 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'tests',
-        message: questions[7],
+        message: questions[8],
         validate: tests => {
           if (tests) {
             return true;
