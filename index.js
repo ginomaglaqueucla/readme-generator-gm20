@@ -14,8 +14,7 @@ const questions = [
     'Enter contribution guidelines:',
     'Enter Tests:'
 ];
-const licenseArray = ['GNU AGPLv3','Apache License 2.0',
-                      'MIT License','Boost Software License 1.0','The Unlicense'];
+const licenseArray = ['GNU AGPLv3','MIT License','Boost Software License 1.0','The Unlicense'];
 
 // function to write README file
 const writeToFile = fileContent => {

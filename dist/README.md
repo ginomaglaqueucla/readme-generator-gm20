@@ -1,7 +1,7 @@
-# wgrwg
+# fewfew
 
 ## Description
-grw
+fewfewg
 
 ## Table of Contents
 * [Installation](#installation)
@@ -10,22 +10,22 @@ grw
 * [License](#license)
 
 ## Installation
-gw
+gewgwe
 
 ## Usage
-gew
+fewgewg
 
 ## License
-GNU AFFERO GENERAL PUBLIC LICENSE
+MIT License
 
-Version 3, 19 November 2007
+Copyright (c) [year] [fullname]
 
-Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-Everyone is permitted to copy and distribute verbatim copies
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 ## Contribution
-wgew
+gewgwe
 
 ## Test
-gew
+wegwwe
