@@ -3,10 +3,12 @@ const fs = require('fs')
 // function chooses licenses depending on user selection
 const licenseText = licenseUser => {
   let txtPath = "";
-  let GNU_AGPLv3 = ["GNU AFFERO GENERAL PUBLIC LICENSE", 
-  "Version 3, 19 November 2007","Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>",
-  "Everyone is permitted to copy and distribute verbatim copies",
-  "of this license document, but changing it is not allowed."];
+  let GNU_AGPLv3 = 
+                  ["GNU AFFERO GENERAL PUBLIC LICENSE", 
+                   "Version 3, 19 November 2007",
+                   "Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>",
+                   "Everyone is permitted to copy and distribute verbatim copies",
+                   "of this license document, but changing it is not allowed."];
   // 'GNU AGPLv3','Mozilla Public License','Apache License 2.0',
   //  'MIT License','Boost Software License 1.0','The Unlicense'
   // txtPath = "../src/" + license + ".txt";
@@ -58,8 +60,11 @@ ${usageInfo}
 
 ## License
 ${licenseTextString[0]}
+
 ${licenseTextString[1]}
+
 ${licenseTextString[2]}
+
 ${licenseTextString[3]}
 
 ## Contribution
