@@ -73,8 +73,10 @@ ${projDescription}
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
 * [License](#license)
+* [Contribution](#contribution)
+* [Test](#test)
+* [Questions](#questions)
 
 ## Installation
 ${installInstruct}
