@@ -36,7 +36,11 @@ The above copyright notice and this permission notice shall be included in all c
 This project uses the following external: 
 - inquirer npm. 
 
-To contribute to this project: Clone repository from Installation section, Pull latest code locally, Create new working branch, Push up newly created branch, Create Pull Request and add reviewers when ready to merge with main code
+To contribute to this project:
+1. Clone repository from Installation section
+2. Pull latest code locally, Create new working branch
+3. Push up newly created branch
+4. Create Pull Request and add reviewers when ready to merge with main code
 
 ## Test
 Go to the following link to see tutorial of how README generator works: [README Generator Demo](https://drive.google.com/file/d/1Q6X1epZ8w1MZ9HgtA53YXDBU_D2M7VtJ/view?usp=sharing)
